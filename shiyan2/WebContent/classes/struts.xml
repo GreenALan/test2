@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+	
+	
+<!-- package里元素必须按照一定的顺序排列 -->
+<!-- result-types -->
+<!-- interceptors -->
+<!-- default-interceptor-ref -->
+<!-- default-action-ref -->
+<!-- default-class-ref -->
+<!-- global-results -->
+<!-- global-exception-mappings -->
+<!-- action*(就是所有的action放到最后) -->
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<package name="default" extends="struts-default" namespace="/"
+		strict-method-invocation="false">
+		<!-- <global-results>
+			<result name="error">/error.jsp</result>
+		</global-results>
+		<global-allowed-methods>login,logout,initAdd,clear,all,list,upload</global-allowed-methods> -->
+		<action name="login" class="com.test.action.LoginAction" method="execute">
+			<result name="error">/error.jsp</result>
+			<result name="success">/welcome.jsp</result>
+			<result name="MEIYOU">/nobook.jsp</result>
+		</action>
+		
+		<action name="del" class="com.test.action.LoginAction" method="del">
+			<result name="error">/error.jsp</result>
+			<result name="success">/delok.jsp</result>
+		</action>
+		
+		
+		<action name="insbook" class="com.test.action.LoginAction" method="insbook">
+			<result name="error">/error.jsp</result>
+			<result name="success">/insok.jsp</result>
+		</action>
+		
+		<action name="insauthor" class="com.test.action.LoginAction" method="insauthor">
+			<result name="error">/error.jsp</result>
+			<result name="success">/insok.jsp</result>
+		</action>
+		
+		
+		<action name="homepage" class="com.test.action.LoginAction" method="allauthor">
+			<!-- <result>/{1}.jsp</result> -->
+			<result>/login.jsp</result>
+		</action>
+
+	</package>
+
+</struts>
